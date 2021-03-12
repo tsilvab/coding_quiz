@@ -1,0 +1,121 @@
+/* body{
+    
+} */
+/* header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.highscores{
+    margin-top: 20px;
+    color: rebeccapurple;
+    font-size: 20px;
+}
+
+h1{
+    
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+h2{
+
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+
+}
+.score{
+    text-align: center;
+    font-size: 36px;  
+}
+.inital{
+    text-align: center;
+}
+
+#info {
+
+text-align: center;
+font-size: 22px;
+/* position: absolute; */
+top: 15%;
+margin: 0px 350px;
+}
+
+#start{
+   position: absolute;
+   top:70%;
+   left: 45%;
+   background-color:rebeccapurple;
+   color: white;
+
+}
+.count{
+    float: right;
+    font-size: 20px;
+    color: rebeccapurple;
+}
+.timer{
+    float: right;
+    font-size: 20px;
+    color: rebeccapurple;
+}
+#question{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+.choices_list{
+    position: absolute;
+    top: 150px;
+    left:40%;
+    font-size: 20px;  
+
+}
+ 
+.choices{
+   display: block;
+   margin-left: 20%;
+   margin-top: 50px;
+    color: white;
+    background-color: rebeccapurple;
+    font-size: 18px;
+
+}
+.hide {
+    display:none;
+}
+
+#alertt {
+    position: absolute;
+    font-weight: bold;
+    top:65%;
+    left: 20%;
+    background-color: white;
+    color:black;
+    font-size: 20px;
+}
+.submit {
+margin-left: 110px;
+   background-color:rebeccapurple;
+   color: white; 
+}
+.inital{
+position:absolute;
+margin-left: 50%;   
+text-align: center;
+font-size: 22px;
+
+}
+
+#start:hover {
+cursor: pointer;
+background-color: rgb(191, 163, 219);
+}
+
+.choices:hover{
+cursor: pointer;
+background-color: rgb(191, 163, 219);
+}

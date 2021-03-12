@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz Challenge</title> -->
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="highscores">View Highscores</div>
+            <div class="timer">100</div>
+            <div class="count">Time:</div>
+        </header>
+    </div>
+    <div id="info-container">
+        <h1>Coding Quiz Challenge</h1>
+        <div id="info">
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score time by ten seconds!</p>
+        </div>
+    </div>
+
+    <button id="start">Start Quiz</button>
+    <div id="alertt" class="hide"></div>
+
+    <div id="container">
+        <div id="question-container" class="hide">
+            <div id="question">question</div>
+
+            <div>
+                <div class="choices-list">
+                    <button class="choices" id="choice1"></button>
+                    <button class="choices" id="choice2"></button>
+                    <button class="choices" id="choice3">
+                    </button>
+                    <button class="choices" id="choice4">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scoreContainer" class="hide">
+        <h2>All Done!</h2>
+        <div class="score">#</div>
+        <form>
+            <input class="initals" type="text" name="name" placeholder="Enter your initals">
+        </form>
+        <button class="submit">Submit</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

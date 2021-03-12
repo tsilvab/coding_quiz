@@ -1,0 +1,136 @@
+const startButton = document.querySelector("#start");
+const questionEl = document.querySelector("#question");
+const choicesButton = document.querySelectorAll(".choices")
+const questionContainer = document.querySelector("#question-container")
+const info = document.querySelector("#info-container")
+const choicesList = document.querySelector(".choices-list")
+const choice1 = document.getElementById("choice1")
+let choice2 = document.getElementById("choice2")
+let choice3 = document.getElementById("choice3")
+let choice4 = document.getElementById("choice4")
+let scoreContainer = document.getElementById("scoreContainer")
+let timer = document.querySelector(".timer")
+
+let questions = [
+    {
+        question: "Commonly used data types DO NOT include:",
+        choices1: "strings",
+        choice2: "Booleans",
+        choice3: "alerts",
+        choice4: "numbers",
+        correct: "choice3"
+
+    },
+    {
+        question: "The condition in an if/else statement is enclosed within ___.",
+        choice1: "quotes",
+        choice2: "curly brackets",
+        choice3: "parathesis",
+        choice4: "square brackets",
+        correct: "choice3"
+
+    },
+
+    {
+        question: "Arrays in javascript can be used to store ___.",
+        choice1: "numbers and strings",
+        choice2: "other arrays",
+        choice3: "booleans",
+        choice4: "all of the above",
+        correct: "choice4"
+
+
+    },
+
+    {
+        question: "String values must be enclosed within ___.",
+        choice1: "commas",
+        choice2: "curly brackets",
+        choice3: "quotes",
+        choice4: "parathesis",
+        correct: "choice3"
+
+    },
+
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choice1: "javascript",
+        choice2: "terminal/bash",
+        choice3: "for loops",
+        choice4: "console log",
+        correct: "choice4"
+    }
+]
+
+let lastQuestion = questions.length - 1
+let currentQuestion = 0
+let scores = 0
+let time = 10
+let timeLeft = 100
+function showQuestion() {
+    let quest = questions[currentQuestion];
+
+    question.textContent = quest.question;
+    choice1.innerText = quest.choice1;
+    choice2.textContent = quest.choice2;
+    choice3.textContent = quest.choice3;
+    choice4.textContent = quest.choice4;
+}
+// choicesButton[0].addEventListener("click", getAnswer);
+// choicesButton[1].addEventListener("click", getAnswer);
+// choicesButton[2].addEventListener("click", getAnswer);
+// choicesButton[3].addEventListener("click", getAnswer);
+
+
+for (let i = 0; i < choicesButton.length; i++) {
+    choicesButton[i].addEventListener("click", getAnswer);
+}
+
+
+startButton.addEventListener("click", startQuiz);
+
+function setTime() {
+    var timerInterval = setInterval(function () {
+        timeLeft--;
+        timer.textContent = timeLeft;
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
+
+function startQuiz() {
+    startButton.style.display = "none";
+    info.style.display = "none";
+    showQuestion();
+    questionContainer.style.display = "block";
+    setTime();
+}
+
+function getAnswer(event) {
+    const questionObj = questions[currentQuestion];
+    const correctAnswerProperty = questions[currentQuestion].correct;
+    const correctAnswer = questionObj[correctAnswerProperty];
+
+    if (event.target.textContent !== correctAnswer) {
+        alert("Wrong! Try Again.");
+        timer++;
+
+    } else if (currentQuestion < lastQuestion) {
+        currentQuestion++;
+        showQuestion();
+    } else {
+        scoreRender();
+        clearInterval(timerInterval);
+
+
+    }
+}
+
+function scoreRender() {
+    questionContainer.style.display = "hide";
+    scoreContainer.style.display = "block";
+
+}
+
+
