@@ -10,7 +10,9 @@ let choice3 = document.getElementById("choice3")
 let choice4 = document.getElementById("choice4")
 let scoreContainer = document.getElementById("scoreContainer")
 let timer = document.querySelector(".timer")
-
+let submit = document.querySelector(".submit")
+let initals = document.querySelector(".initals")
+let timerInterval = -1;
 let questions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -64,9 +66,9 @@ let questions = [
 
 let lastQuestion = questions.length - 1
 let currentQuestion = 0
-let scores = 0
+let score = 0
 let time = 10
-let timeLeft = 100
+let timeLeft = 60
 function showQuestion() {
     let quest = questions[currentQuestion];
 
@@ -90,10 +92,12 @@ for (let i = 0; i < choicesButton.length; i++) {
 startButton.addEventListener("click", startQuiz);
 
 function setTime() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         timeLeft--;
         timer.textContent = timeLeft;
-        if (timeLeft === 0) {
+        if (timeLeft <= 0) {
+            renderScore();
+            timer.textContent = 0;
             clearInterval(timerInterval);
         }
     }, 1000);
@@ -114,23 +118,29 @@ function getAnswer(event) {
 
     if (event.target.textContent !== correctAnswer) {
         alert("Wrong! Try Again.");
-        timer++;
+        timeLeft -= 10;
+
 
     } else if (currentQuestion < lastQuestion) {
         currentQuestion++;
+        score++;
         showQuestion();
     } else {
-        scoreRender();
+        renderScore();
         clearInterval(timerInterval);
 
 
     }
 }
 
-function scoreRender() {
-    questionContainer.style.display = "hide";
+function renderScore() {
+    questionContainer.style.display = "none";
     scoreContainer.style.display = "block";
 
 }
+submit.addEventListener("click", function (event) {
+    event.preventDefault();
 
-
+    let initalsInput = document.querySelector(".intials").value;
+    localStorage.setItem("intialsInput", initals);
+});
