@@ -2,13 +2,13 @@ const startButton = document.querySelector("#start");
 const questionEl = document.querySelector("#question");
 const choicesButton = document.querySelectorAll(".choices")
 const questionContainer = document.querySelector("#question-container")
+const scoreContainer = document.getElementById("scoreContainer")
 const info = document.querySelector("#info-container")
 const choicesList = document.querySelector(".choices-list")
 const choice1 = document.getElementById("choice1")
 let choice2 = document.getElementById("choice2")
 let choice3 = document.getElementById("choice3")
 let choice4 = document.getElementById("choice4")
-let scoreContainer = document.getElementById("scoreContainer")
 let timer = document.querySelector(".timer")
 let submit = document.querySelector(".submit")
 let initals = document.querySelector(".initals")
@@ -79,11 +79,6 @@ function showQuestion() {
     choice3.textContent = quest.choice3;
     choice4.textContent = quest.choice4;
 }
-// choicesButton[0].addEventListener("click", getAnswer);
-// choicesButton[1].addEventListener("click", getAnswer);
-// choicesButton[2].addEventListener("click", getAnswer);
-// choicesButton[3].addEventListener("click", getAnswer);
-
 
 for (let i = 0; i < choicesButton.length; i++) {
     choicesButton[i].addEventListener("click", getAnswer);
@@ -130,7 +125,6 @@ function getAnswer(event) {
         renderScore();
         clearInterval(timerInterval);
 
-
     }
 }
 
@@ -143,5 +137,17 @@ submit.addEventListener("click", function (event) {
     event.preventDefault();
 
     let initalsInput = document.querySelector(".intials").value;
-    localStorage.setItem("intialsInput", initals);
+    localStorage.setItem('initalInput', "inital");
 });
+const arr = [{
+    name: '',
+    value: "score"
+}, {
+    name: '',
+    value: "score"
+}];
+
+localStorage.setItem('score', JSON.stringify(arr));
+
+const arrData = localStorage.getItem('score');
+const arr2 = JSON.parse(arrData);
