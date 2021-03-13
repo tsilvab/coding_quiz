@@ -14,6 +14,7 @@ let submit = document.querySelector(".submit")
 let initals = document.querySelector(".initals")
 let timerInterval = -1;
 let questions = [
+
     {
         question: "Commonly used data types DO NOT include:",
         choices1: "strings",
